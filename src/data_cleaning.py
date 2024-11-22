@@ -99,3 +99,16 @@ print(f"\nLinhas restantes após remoção de linhas com mais de 50% de valores 
 # Preencher valores ausentes restantes com a mediana da coluna
 dados = dados.fillna(dados.median())
 print("\nValores ausentes restantes preenchidos com a mediana das colunas.")
+
+# Preencher valores ausentes restantes com a mediana das colunas numéricas
+dados = dados.fillna(dados.median())
+print("\nValores ausentes restantes preenchidos com a mediana das colunas.")
+
+# Salvar o dataset final após todos os tratamentos
+caminho_saida_final = "/Users/tatiana.massoco/Desktop/TCC_ESG_Model/data/ESGData_clean_final.csv"
+dados.to_csv(caminho_saida_final, index=False)
+print(f"\nDataset final limpo salvo em: {caminho_saida_final}")
+
+# Confirmar as alterações
+print("\nResumo do dataset final:")
+print(dados.info())
