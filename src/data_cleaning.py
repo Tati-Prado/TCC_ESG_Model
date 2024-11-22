@@ -83,3 +83,19 @@ sns.heatmap(dados.isnull(), cbar=False, cmap="viridis")
 plt.title("Mapa de Calor de Valores Ausentes")
 plt.show()
 
+# 9. Lidar com valores ausentes
+
+# Remover colunas com mais de 90% de valores ausentes
+limite_colunas = 90  # Limite percentual
+colunas_para_remover = valores_ausentes[valores_ausentes > limite_colunas].index
+dados = dados.drop(columns=colunas_para_remover)
+print(f"\nColunas removidas por exceder {limite_colunas}% de valores ausentes: {list(colunas_para_remover)}")
+
+# Remover linhas com mais de 50% de valores ausentes
+limite_linhas = len(dados.columns) * 0.5  # 50% do total de colunas
+dados = dados.dropna(thresh=limite_linhas, axis=0)
+print(f"\nLinhas restantes após remoção de linhas com mais de 50% de valores ausentes: {len(dados)}")
+
+# Preencher valores ausentes restantes com a mediana da coluna
+dados = dados.fillna(dados.median())
+print("\nValores ausentes restantes preenchidos com a mediana das colunas.")
