@@ -1,0 +1,10 @@
+# Ignorar o ambiente virtual
+esg_model_env/
+
+# Ignorar arquivos temporários do Python
+*.pyc
+__pycache__/
+
+# Ignorar arquivos CSV processados
+data/*.csv
+!data/ESGData_cleaned.csv  # Exceção: manter o arquivo final limpo
