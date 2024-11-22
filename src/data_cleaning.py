@@ -57,3 +57,15 @@ for ano in anos_para_transformacao:
         coluna_log = f"{ano}_log"
         dados[coluna_log] = np.log1p(dados[ano])  # log1p para lidar com valores 0
         print(f"Transformação logarítmica aplicada para o ano {ano}")
+        
+# 7. Visualizar as distribuições transformadas
+for ano in anos_para_transformacao:
+    coluna_log = f"{ano}_log"
+    if coluna_log in dados.columns:
+        plt.figure(figsize=(10, 5))
+        sns.histplot(dados[coluna_log].dropna(), kde=True, bins=30, color="blue")
+        plt.title(f"Distribuição logarítmica de valores para o ano {ano}")
+        plt.xlabel("Valor (log)")
+        plt.ylabel("Frequência")
+        plt.show()
+
