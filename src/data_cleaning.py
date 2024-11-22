@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-import seaborn as sns
 
 # Caminho para o dataset principal
 caminho_dataset = "/Users/tatiana.massoco/Desktop/TCC_ESG_Model/data/ESGData.csv"
@@ -96,13 +95,10 @@ limite_linhas = len(dados.columns) * 0.5  # 50% do total de colunas
 dados = dados.dropna(thresh=limite_linhas, axis=0)
 print(f"\nLinhas restantes após remoção de linhas com mais de 50% de valores ausentes: {len(dados)}")
 
-# Preencher valores ausentes restantes com a mediana da coluna
-dados = dados.fillna(dados.median())
-print("\nValores ausentes restantes preenchidos com a mediana das colunas.")
-
-# Preencher valores ausentes restantes com a mediana das colunas numéricas
-dados = dados.fillna(dados.median())
-print("\nValores ausentes restantes preenchidos com a mediana das colunas.")
+# Preencher valores ausentes nas colunas numéricas com a mediana
+colunas_numericas = dados.select_dtypes(include=["number"]).columns
+dados[colunas_numericas] = dados[colunas_numericas].fillna(dados[colunas_numericas].median())
+print("\nValores ausentes restantes preenchidos com a mediana das colunas numéricas.")
 
 # Salvar o dataset final após todos os tratamentos
 caminho_saida_final = "/Users/tatiana.massoco/Desktop/TCC_ESG_Model/data/ESGData_clean_final.csv"
@@ -112,3 +108,4 @@ print(f"\nDataset final limpo salvo em: {caminho_saida_final}")
 # Confirmar as alterações
 print("\nResumo do dataset final:")
 print(dados.info())
+
