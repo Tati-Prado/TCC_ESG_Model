@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import seaborn as sns
 
 # Caminho para o dataset principal
 caminho_dataset = "/Users/tatiana.massoco/Desktop/TCC_ESG_Model/data/ESGData.csv"
@@ -68,4 +69,17 @@ for ano in anos_para_transformacao:
         plt.xlabel("Valor (log)")
         plt.ylabel("Frequência")
         plt.show()
+
+# 8. Analisar os dados ausentes
+
+# Verificar a porcentagem de valores ausentes para cada coluna
+valores_ausentes = dados.isnull().mean() * 100
+print("\nPorcentagem de valores ausentes por coluna:")
+print(valores_ausentes[valores_ausentes > 0])
+
+# Visualizar um mapa de calor para valores ausentes
+plt.figure(figsize=(12, 8))
+sns.heatmap(dados.isnull(), cbar=False, cmap="viridis")
+plt.title("Mapa de Calor de Valores Ausentes")
+plt.show()
 
