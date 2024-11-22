@@ -21,6 +21,15 @@ colunas_irrelevantes = ["Unnamed: 66"]  # Ajuste se necessário
 dados = dados.drop(columns=colunas_irrelevantes, errors="ignore")
 print(f"\nColunas após remoção das irrelevantes: {dados.columns}")
 
+# 3.1 Exploração de Outliers
+# Analisar os valores mais altos para os anos de interesse
+anos_interesse = ["1960", "1970", "1980", "1990", "2000", "2010", "2020"]
+
+for ano in anos_interesse:
+    if ano in dados.columns:
+        print(f"\nValores mais altos para o ano {ano}:")
+        print(dados[['Country Name', 'Country Code', ano]].sort_values(by=ano, ascending=False).head(10))
+
 # 4. Verificar a distribuição dos dados (histograma para uma amostra de indicadores)
 indicadores_para_visualizar = ["1960", "1970", "1980", "1990", "2000", "2010", "2020"]  # O ajuste é conforme os anos disponíveis
 
