@@ -82,6 +82,18 @@ sns.heatmap(dados.isnull(), cbar=False, cmap="viridis")
 plt.title("Mapa de Calor de Valores Ausentes")
 plt.show()
 
+# Calcular a porcentagem de valores ausentes para cada coluna
+missing_percentage = df.isnull().sum() / len(df) * 100
+
+# Exibir as colunas com valores ausentes acima de 90%
+print(missing_percentage[missing_percentage > 90])
+
+# Exibir as colunas com valores ausentes entre 40% e 60%
+print(missing_percentage[(missing_percentage >= 40) & (missing_percentage <= 60)])
+
+# Exibir as colunas com menos de 40% de valores ausentes
+print(missing_percentage[missing_percentage < 40])
+
 # 9. Lidar com valores ausentes
 
 # Remover colunas com mais de 90% de valores ausentes
