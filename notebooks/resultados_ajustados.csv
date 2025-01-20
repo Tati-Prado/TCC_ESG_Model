@@ -1,0 +1,37 @@
+Variável Alvo,Modelo,R²,RMSE,MAE
+CO2 emissions (metric tons per capita),Random Forest,-0.010948546692438166,5.481172713718923,2.6423988920157435
+CO2 emissions (metric tons per capita),XGBoost,-0.08328160771666004,5.673873458761764,3.0849646165513076
+Methane emissions (metric tons of CO2 equivalent per capita),Random Forest,0.9550558270794897,2.0622808750875836,1.4008671416600444
+Methane emissions (metric tons of CO2 equivalent per capita),XGBoost,-0.02576848847719937,9.85225841925363,6.377515496163399
+Nitrous oxide emissions (metric tons of CO2 equivalent per capita),Random Forest,0.9628251209666898,1.9592064854303501,1.1037331335445153
+Nitrous oxide emissions (metric tons of CO2 equivalent per capita),XGBoost,-0.06227415835039851,10.47306348335059,6.405363298783242
+Energy use (kg of oil equivalent per capita),Random Forest,0.7410765727565225,474.35404189984354,359.86685337498926
+Energy use (kg of oil equivalent per capita),XGBoost,0.916068252339484,270.07231377708536,226.85531783357857
+Fossil fuel energy consumption (% of total),Random Forest,0.8926899795817401,7.243613440222448,4.999372603064059
+Fossil fuel energy consumption (% of total),XGBoost,0.8465954892599477,8.660723867322066,5.542904791018291
+Electricity production from coal sources (% of total),Random Forest,0.6872303603380552,3.0853436950658657,2.102027974646995
+Electricity production from coal sources (% of total),XGBoost,0.6788923716474444,3.1261986149968553,2.513455507714719
+Forest area (% of land area),Random Forest,0.9667023071420908,1.8066313200650181,1.3830057317097624
+Forest area (% of land area),XGBoost,0.9487473582536198,2.241406314877921,1.6372521073122366
+Adjusted savings: natural resources depletion (% of GNI),Random Forest,0.9778668023574093,1.0155267147805458,0.7040126288063757
+Adjusted savings: natural resources depletion (% of GNI),XGBoost,0.10386059789621216,6.461852761815335,3.3980060128788856
+"Life expectancy at birth, total (years)",Random Forest,0.9293084276305027,5.120428856740689,3.826231390604071
+"Life expectancy at birth, total (years)",XGBoost,0.9580234363135185,3.9457172200872788,2.9248614209941968
+"Literacy rate, adult total (% of people ages 15 and above)",Random Forest,0.9544516355586153,6.36439742830493,4.028686543254667
+"Literacy rate, adult total (% of people ages 15 and above)",XGBoost,0.9572632513776691,6.164837554786068,3.885126224452084
+"School enrollment, primary and secondary (gross), gender parity index (GPI)",Random Forest,0.8504253848690733,2.470309053384243,1.532524194171153
+"School enrollment, primary and secondary (gross), gender parity index (GPI)",XGBoost,0.4675717721209791,4.660718566793629,2.527704754506769
+Prevalence of overweight (% of adults),Random Forest,0.8035140888816386,5.877122377894684,5.3588936824729325
+Prevalence of overweight (% of adults),XGBoost,0.8858273577579044,4.480021027448006,3.7778646138313183
+Individuals using the Internet (% of population),Random Forest,0.860010736551301,6.467714122325498,4.335943681900192
+Individuals using the Internet (% of population),XGBoost,0.8420705853743249,6.869655587277543,5.06023868555691
+Access to electricity (% of population),Random Forest,0.9878014060109526,4.330454161086906,3.0685722257047354
+Access to electricity (% of population),XGBoost,0.9955787618938176,2.607056898900368,1.902844024007264
+Gini index (World Bank estimate),Random Forest,0.959589709776433,3.809659070360462,2.674824884452922
+Gini index (World Bank estimate),XGBoost,0.9462649863811656,4.393076933725713,2.8653807406972325
+"Government expenditure on education, total (% of government expenditure)",Random Forest,0.9792463477192652,0.7160375473719683,0.5519926329432099
+"Government expenditure on education, total (% of government expenditure)",XGBoost,0.8516378135804505,1.9144769450759411,1.2958254151027033
+"Patent applications, residents",Random Forest,0.8523342225235665,28320.6999583648,17108.040161304016
+"Patent applications, residents",XGBoost,0.7458426353100118,37154.84074207168,21982.236626484824
+Income share held by lowest 20%,Random Forest,0.9331761507216015,1.7578470908157924,1.085108079490135
+Income share held by lowest 20%,XGBoost,0.5895298328971492,4.356684887751008,2.519474537730842

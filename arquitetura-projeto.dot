@@ -1,0 +1,57 @@
+digraph ESG_Project_Full_Architecture {
+    rankdir=LR;
+    node [shape=box, style=filled, color=lightblue];
+
+    subgraph cluster_0 {
+        label="Estrutura do Projeto";
+        "data" [label="data/: Armazena datasets\n- data/raw/\n- data/processed/"];
+        "src" [label="src/: Scripts Python para análise e processamento"];
+        "notebooks" [label="notebooks/: Jupyter Notebooks para análises exploratórias (opcional)"];
+        "esg_model_env" [label="esg_model_env/: Ambiente virtual para dependências"];
+        "README.md" [label="README.md: Documentação do projeto"];
+        "requirements.txt" [label="requirements.txt: Lista de dependências"];
+        "modelos_deploy_src" [label="modelos_deploy_src/: Modelos treinados"];
+    }
+
+    subgraph cluster_1 {
+        label="Ferramentas e Tecnologias";
+        "Python" [label="Python: Análise de dados e modelagem"];
+        "Bibliotecas" [label="Bibliotecas: pandas, numpy, seaborn, Scikit-learn, matplotlib, Flask, xgboost, joblib"];
+        "Jupyter Notebook" [label="Jupyter Notebook com Anaconda"];
+        "GitHub" [label="GitHub e Git: Controle de versão"];
+        "Docker" [label="Docker: Containerização"];
+        "MLOps" [label="MLOps: Prometheus, Grafana (monitoramento), MLflow (opcional)"];
+    }
+
+    subgraph cluster_2 {
+        label="Componentes Chave";
+        "ETL Pipeline" [label="ETL Pipeline: Extração, transformação e carregamento\n- Dados do Kaggle\n- ESG Risk Score"];
+        "Modelo de ML" [label="Modelo de ML: Classificação/Regressão\n- Random Forest, XGBoost"];
+        "Serviço Flask" [label="Serviço em Produção: API Flask para previsões"];
+        "Monitoramento" [label="Monitoramento: Prometheus, Grafana"];
+        "CI/CD" [label="CI/CD: GitHub Actions para deploy"];
+    }
+
+    subgraph cluster_3 {
+        label="Pipeline do Projeto";
+        "Coleta" [label="Coleta e Pré-processamento\n- Limpeza\n- ESG Risk Score"];
+        "Treinamento" [label="Treinamento e Validação\n- Divisão treino/teste\n- Validação cruzada"];
+        "Automação" [label="Automação CI/CD\n- Docker para deploy"];
+        "Monitoramento Produção" [label="Monitoramento em Produção\n- Retreinamento baseado em mudanças"];
+        "Manutenção" [label="Manutenção\n- Logs detalhados\n- Retreinamento automático"];
+    }
+
+    // Conexões Principais
+    "data" -> "Coleta";
+    "Coleta" -> "Treinamento";
+    "Treinamento" -> "Modelo de ML";
+    "Modelo de ML" -> "Serviço Flask";
+    "Serviço Flask" -> "Monitoramento Produção";
+    "Automação" -> "Monitoramento Produção";
+    "Manutenção" -> "Monitoramento Produção";
+}
+
+
+
+
+
