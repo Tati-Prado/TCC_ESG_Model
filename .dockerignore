@@ -1,0 +1,11 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.env
+data/
+notebooks/
+esg_model_env/
+
+
+
