@@ -11,3 +11,4 @@ Metodologia de Implementação:
 3.	Monitoramento em Produção: O desempenho do modelo será monitorado em tempo real com Prometheus e Grafana, que fornecerão alertas e dashboards para acompanhamento das métricas de performance e desvio de dados. Isso permitirá uma análise contínua da estabilidade e precisão do modelo em produção.
 4.	Manutenção e Atualização: Implementado com técnicas de MLOps, o modelo realizará re-treinamento automático baseado em degradações de performance e manterá logs de versão, garantindo a longevidade e adaptação do modelo às mudanças nos dados ESG.
 Esse projeto demonstrará uma aplicação prática de machine learning em produção, proporcionando uma ferramenta valiosa para investidores que desejam incorporar práticas ESG em suas decisões financeiras de forma eficiente e sustentável.
+Git Actions erros foram bastante desafiadores para este proejto.
