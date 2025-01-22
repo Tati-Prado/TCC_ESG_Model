@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  api:
+    image: tatiprado/esg-risk-api:latest
+    container_name: esg-risk-api
+    ports:
+      - "5001:5000"  # Mapeia a porta 5001 no host para a 5000 no container
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"  # Porta padrão do Prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml  # Monta o arquivo de configuração do Prometheus
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"  # Porta padrão do Grafana
+

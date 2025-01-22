@@ -2,8 +2,12 @@ from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
 import os
+from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
+
+# Configuração do Prometheus
+metrics = PrometheusMetrics(app)
 
 # Diretório base do projeto
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -39,5 +43,6 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
+
 
 
