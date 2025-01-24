@@ -1,13 +1,15 @@
 from flask import Flask, request, jsonify
+from prometheus_flask_exporter import PrometheusMetrics
 import joblib
 import pandas as pd
 import os
-from prometheus_flask_exporter import PrometheusMetrics
 
+# Criação do app Flask
 app = Flask(__name__)
 
-# Configuração do Prometheus
+# Configuração do Prometheus Metrics para monitoramento
 metrics = PrometheusMetrics(app)
+metrics.info('app_info', 'Aplicação ESG Risk API', version='1.0.0')
 
 # Diretório base do projeto
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -19,7 +21,12 @@ model_paths = {
 }
 
 # Carregar modelos
-models = {name: joblib.load(path) for name, path in model_paths.items()}
+models = {}
+for name, path in model_paths.items():
+    try:
+        models[name] = joblib.load(path)
+    except Exception as e:
+        print(f"Erro ao carregar o modelo {name}: {e}")
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -41,8 +48,10 @@ def predict():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
+@app.route('/')
+def home():
+    return "API ESG Risk está funcionando! Acesse /metrics para monitoramento."
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
-
-
+    app.run(debug=True, host='0.0.0.0', port=5002)
 
