@@ -5,5 +5,5 @@ scrape_configs:
   - job_name: 'esg-risk-api'
     metrics_path: /metrics
     static_configs:
-      - targets: ['5002']  # # Porta interna da rede Docker
+      - targets: ['api:5000']  # # Porta interna da rede Docker
 
