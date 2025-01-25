@@ -17,6 +17,8 @@ request_counter = Counter(
     registry=registry
 )
 
+print("PrometheusMetrics inicializado!")  # Log para verificar a inicialização
+
 @app.before_request
 def count_requests():
     request_counter.labels(method=request.method, endpoint=request.path).inc()
