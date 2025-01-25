@@ -3,7 +3,7 @@ services:
     image: tatiprado/esg-risk-api:latest
     container_name: esg-risk-api
     ports:
-      - "5002:5000"  # Mapeia a porta 5001 no host para a 5000 no container
+      - "5002:5000"  # Mapeia a porta 5002 no host para a 5000 no container
 
   prometheus:
     image: prom/prometheus:latest

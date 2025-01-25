@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 
 # Configuração do Prometheus Metrics para monitoramento
-metrics = PrometheusMetrics(app)
+metrics = PrometheusMetrics(app, path='/metrics')
 metrics.info('app_info', 'Aplicação ESG Risk API', version='1.0.0')
 
 # Diretório base do projeto
