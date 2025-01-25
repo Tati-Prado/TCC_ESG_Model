@@ -1,5 +1,6 @@
-from flask import Flask, request, jsonify
-from prometheus_flask_exporter import PrometheusMetrics
+from flask import Flask, request, jsonify, Response
+from prometheus_client import CollectorRegistry, Counter, generate_latest
+
 import joblib
 import pandas as pd
 import os
@@ -7,9 +8,22 @@ import os
 # Criação do app Flask
 app = Flask(__name__)
 
-# Configuração do Prometheus Metrics para monitoramento
-metrics = PrometheusMetrics(app, path='/metrics')
-metrics.info('app_info', 'Aplicação ESG Risk API', version='1.0.0')
+# Configuração do Prometheus-client
+registry = CollectorRegistry()
+request_counter = Counter(
+    'http_requests_total',
+    'Contador de requisições HTTP',
+    ['method', 'endpoint'],
+    registry=registry
+)
+
+@app.before_request
+def count_requests():
+    request_counter.labels(method=request.method, endpoint=request.path).inc()
+
+@app.route('/metrics')
+def metrics():
+    return Response(generate_latest(registry), mimetype='text/plain')
 
 # Diretório base do projeto
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -54,4 +68,5 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5002)
+
 
